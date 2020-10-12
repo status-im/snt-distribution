@@ -1,0 +1,3 @@
+[submodule "themes/distillpub"]
+	path = themes/distillpub
+	url = https://github.com/activatedgeek/distillpub.git
