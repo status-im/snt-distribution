@@ -1,0 +1,48 @@
+baseUrl = ""
+title = "Distill Hugo Theme"
+author = "Sanyam Kapoor"
+canonifyurls = true
+theme = "distillpub"
+
+[taxonomies]
+# TODO: Taxonomies?
+
+[params]
+  description = "Distill Hugo Theme Demo"
+  keywords = ["hugo", "distill", "theme"]
+  sourcePrefix = "https://github.com/activatedgeek/distillpub/blob/master/exampleSite"
+
+  color = "#0f2e3d"
+
+  [[params.social]]
+  class = "fas fa-user-graduate"
+  url = "https://scholar.google.com/citations?user=p0NMtgsAAAAJ"
+
+  [[params.social]]
+  class = "fab fa-github"
+  url = "https://github.com/activatedgeek"
+
+  [[params.social]]
+  class = "fab fa-hacker-news"
+  url = "https://news.ycombinator.com/user?id=activatedgeek"
+
+  [[params.social]]
+  class = "fab fa-linkedin"
+  url = "https://linkedin.com/in/sanyamkapoor"
+
+  [[params.social]]
+  class = "fab fa-stack-overflow"
+  url = "https://stackoverflow.com/users/2425365"
+
+  [[params.social]]
+  class = "fab fa-twitter"
+  url = "https://twitter.com/activatedgeek"
+
+[menu]
+
+  [[menu.main]]
+  identifier = "about"
+  name = "About Hugo"
+  title = "about"
+  url = "/about"
+  weight = -10
