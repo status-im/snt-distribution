@@ -86,8 +86,9 @@ That’s it for the example article!
     </tr>
   </thead>
   <tbody>
-    <tr><td>0x</td><td>000</td></tr>
-  {{ range $i, $r := getCSV "," "data_csv/holders.csv" }}
+  {{ $url := "static/data_csv/holders.csv" }}
+  {{ $sep := "," }}
+  {{ range $i, $r := getCSV $sep $url }}
     <tr>
       <td>{{ index $r 0 }}</td>
       <td>{{ index $r 1 }}</td>
