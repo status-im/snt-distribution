@@ -29,11 +29,15 @@ If you would like to see a visualization that does not exist yet based on the av
 - [ ] abstract plot creation process and store in seperate directory
 - [ ] abstract away utility functions used in python script
 - [ ] re-format theme to be main visualization dashboard with associated research articles as secondary
+- [ ] host on github pages to subdomain of Status.im
+- [ ] add guide on creating an article and using Hugo/Distill
+- [x] add README for plot folder
+- [x] add README for data folder
 ### Content
 - [ ] create main SNT visualization dashboard
-- [ ] finish initial SNT Distribution Analys draft article
+- [ ] finish initial SNT Distribution Analsys draft article
 ### Plots
-- [ ] create plot - stale funds vs current
-- [ ] create plot - order of magnitude plot
-- [ ] create plot - change exchange bar to treemap
-- [ ] create plot - treemap of distribution across Status
+- [ ] all holders - stale funds vs current
+- [ ] community - order of magnitude plot
+- [ ] exchanges - change exchange bar to treemap
+- [ ] status - treemap of distribution across Status
