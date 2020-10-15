@@ -1,0 +1,194 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "A basic bar chart example, with value labels shown upon mouse hover.",
+    "width": 400,
+    "height": 200,
+    "padding": 5,
+    "data": [
+        {
+            "name": "table",
+            "values": [
+                {
+                    "index": 0,
+                    "name": "Binance",
+                    "balance": 540477233.0112911,
+                    "percent": 7.9425061628
+                },
+                {
+                    "index": 1,
+                    "name": "Bitfinex",
+                    "balance": 75644081.8606061,
+                    "percent": 1.1116168261
+                },
+                {
+                    "index": 2,
+                    "name": "Bitrex",
+                    "balance": 1066272864.0312135,
+                    "percent": 15.6692609356
+                },
+                {
+                    "index": 3,
+                    "name": "Gate.io",
+                    "balance": 108969051.66943823,
+                    "percent": 1.6013391713
+                },
+                {
+                    "index": 4,
+                    "name": "Huobi",
+                    "balance": 197336263.422743,
+                    "percent": 2.8999269398
+                },
+                {
+                    "index": 5,
+                    "name": "Kucoin",
+                    "balance": 47290553.264842294,
+                    "percent": 0.6949515869
+                },
+                {
+                    "index": 6,
+                    "name": "OKEx",
+                    "balance": 122699341.4858642,
+                    "percent": 1.8031106889
+                },
+                {
+                    "index": 7,
+                    "name": "Peatio",
+                    "balance": 15296368.661758801,
+                    "percent": 0.224785606
+                },
+                {
+                    "index": 8,
+                    "name": "Poloniex",
+                    "balance": 6656788.42817715,
+                    "percent": 0.0978238858
+                }
+            ]
+        }
+    ],
+    "signals": [
+        {
+            "name": "tooltip",
+            "value": {},
+            "on": [
+                {
+                    "events": "rect:mouseover",
+                    "update": "datum"
+                },
+                {
+                    "events": "rect:mouseout",
+                    "update": "{}"
+                }
+            ]
+        }
+    ],
+    "scales": [
+        {
+            "name": "xscale",
+            "type": "band",
+            "domain": {
+                "data": "table",
+                "field": "name"
+            },
+            "range": "width",
+            "padding": 0.05,
+            "round": true
+        },
+        {
+            "name": "yscale",
+            "domain": {
+                "data": "table",
+                "field": "percent"
+            },
+            "nice": true,
+            "range": "height"
+        }
+    ],
+    "axes": [
+        {
+            "orient": "bottom",
+            "scale": "xscale"
+        },
+        {
+            "orient": "left",
+            "scale": "yscale"
+        }
+    ],
+    "marks": [
+        {
+            "type": "rect",
+            "from": {
+                "data": "table"
+            },
+            "encode": {
+                "enter": {
+                    "x": {
+                        "scale": "xscale",
+                        "field": "name"
+                    },
+                    "width": {
+                        "scale": "xscale",
+                        "band": 1
+                    },
+                    "y": {
+                        "scale": "yscale",
+                        "field": "percent"
+                    },
+                    "y2": {
+                        "scale": "yscale",
+                        "value": 0
+                    }
+                },
+                "update": {
+                    "fill": {
+                        "value": "steelblue"
+                    }
+                },
+                "hover": {
+                    "fill": {
+                        "value": "red"
+                    }
+                }
+            }
+        },
+        {
+            "type": "text",
+            "encode": {
+                "enter": {
+                    "align": {
+                        "value": "center"
+                    },
+                    "baseline": {
+                        "value": "bottom"
+                    },
+                    "fill": {
+                        "value": "#333"
+                    }
+                },
+                "update": {
+                    "x": {
+                        "scale": "xscale",
+                        "signal": "tooltip.name",
+                        "band": 0.5
+                    },
+                    "y": {
+                        "scale": "yscale",
+                        "signal": "tooltip.percent",
+                        "offset": -2
+                    },
+                    "text": {
+                        "signal": "tooltip.percent"
+                    },
+                    "fillOpacity": [
+                        {
+                            "test": "datum === tooltip",
+                            "value": 0
+                        },
+                        {
+                            "value": 1
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

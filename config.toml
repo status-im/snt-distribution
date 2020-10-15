@@ -1,6 +1,6 @@
 baseUrl = ""
-title = "Distill Hugo Theme"
-author = "Sanyam Kapoor"
+title = "Status Network Token Distribution Analysis"
+author = "Corey Petty"
 canonifyurls = true
 theme = "distillpub"
 
@@ -8,41 +8,25 @@ theme = "distillpub"
 # TODO: Taxonomies?
 
 [params]
-  description = "Distill Hugo Theme Demo"
+  description = "Status Network Token Distribution"
   keywords = ["hugo", "distill", "theme"]
-  sourcePrefix = "https://github.com/activatedgeek/distillpub/blob/master/exampleSite"
+  sourcePrefix = "https://github.com/status-im/snt-distribution"
 
-  color = "#0f2e3d"
-
-  [[params.social]]
-  class = "fas fa-user-graduate"
-  url = "https://scholar.google.com/citations?user=p0NMtgsAAAAJ"
+  color = "#4360DF"
 
   [[params.social]]
   class = "fab fa-github"
-  url = "https://github.com/activatedgeek"
-
-  [[params.social]]
-  class = "fab fa-hacker-news"
-  url = "https://news.ycombinator.com/user?id=activatedgeek"
-
-  [[params.social]]
-  class = "fab fa-linkedin"
-  url = "https://linkedin.com/in/sanyamkapoor"
-
-  [[params.social]]
-  class = "fab fa-stack-overflow"
-  url = "https://stackoverflow.com/users/2425365"
+  url = "https://github.com/status-im"
 
   [[params.social]]
   class = "fab fa-twitter"
-  url = "https://twitter.com/activatedgeek"
+  url = "https://twitter.com/ethstatus"
 
 [menu]
 
   [[menu.main]]
   identifier = "about"
-  name = "About Hugo"
+  name = "Corey Petty"
   title = "about"
   url = "/about"
   weight = -10

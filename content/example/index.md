@@ -1,7 +1,7 @@
 +++
-title = "Attention and Augmented Recurrent Neural Networks"
+title = "SNT Distribution Analysis: A visual article"
 description = "This is a demo article."
-date = "2017-01-10"
+date = "2020-10-15"
 thumbnail = ""
 categories = [
   "demo"
@@ -31,68 +31,35 @@ vega = true
   <p>This is the ﬁrst paragraph of the article. Test a long — dash — here it is.</p>
 </d-abstract>
 
-This is the ﬁrst paragraph of the article. Test a long — dash — here it is
+This is an article that will discribe how SNT is distributed throughout its community. There was a previous analysis performed by the author {{<cite bib="pettyDistribution2017">}} directly after the Status.im ICO. This analysis attempted to look at who participated directly with the token distribution smart contract, and how they relate to each other. Since then, there has been a lot of development, a lot of movement of the SNT token, and adoption of several exchanges whcih drastically alters the distribution.
 
-Test for owner’s possessive. Test for "quoting a passage." And another sentence. Or two. Some ﬂopping ﬁns; for diving.
+Here we will create various plots that show, in as much detail as publicly possible, who holds what as it stands today and review is it looks any different than a naive view, or the snapshot given by the author directly after the ICO.
 
-Here’s a test of an inline equation {{<math>}}c = a^2 + b^2{{</math>}}. And then there’s a block equation:
-{{<math block="true">}}
-  c = \pm \sqrt{ \sum_{i=0}^{n}{a^{222} + b^2}}
-{{</math>}}
+Here we have the initial SNT distribution seperation. It is most easily seperated into three seperate sections which each require further analysis:
 
-We can {{<cite bib="mercier2011humans">}} also cite {{<cite bib="gregor2015draw,mercier2011humans">}} external publications. {{<cite bib="dong2014image,dumoulin2016guide,mordvintsev2015inceptionism">}}.
+{{<vega id="viz-compare" spec="status-exchange-community-donut.vg.json" >}}
 
-We should also be testing footnotes{{<footnote>}}This will become a hoverable footnote. This will become a hoverable footnote. This will become a hoverable footnote. This will become a hoverable footnote. This will become a hoverable footnote. This will become a hoverable footnote. This will become a hoverable footnote. This will become a hoverable footnote.{{</footnote>}}. There are multiple footnotes, and they appear in the appendix{{<footnote>}}Given I have coded them right. Also, here’s math in a footnote: {{<math>}}c = \sum_0^i{x}{{</math>}}. Also, a citation. Box-ception {{<cite bib="gregor2015draw">}}! {{</footnote>}} as well.
+1. `Status`- contracts and accounts related to the Status Network. These don't necessarily need to be owned and operated by the Status Network GmbH, but certaily include those accounts.
+2. `Exchanges` - accounts that have been identified {{<cite bib="etherscan,f13endgist">}} as accounts used by exchanges to store funds.
+3. `Community` - accounts that cannot be attribute elsewhere that hold SNT, we consider this the "community."
 
-| **First**  | **Second** | **Third** |
-|---|---|---|
-| 23  | 654 | 23  |
-| 14  | 54  | 34  |
-| 234  | 54  | 23  |
+An initial glance at this distribution combined with a naive understanding of the specifics of the Status related holdings will lead to the narrative that SNT is "centralized."
 
-## Displaying code snippets
+---
+## Plots of Status related addresses
 
-Some inline javascript: {{<code language="javascript">}}var x = 25;{{</code>}}
+---
+## Plots of Exchange addresses
 
-Here’s a javascript code block.
-{{<code language="javascript" block="true">}}
-var x = 25;
-function(x){
-  return x * x;
-}
-{{</code>}}
+{{<vega id="viz-exchange" spec="exchange-treemap.vg.json" >}}
 
-We also support python.
-{{<code language="python" block="true">}}
-# Python 3: Fibonacci series up to n
-def fib(n):
-  a, b = 0, 1
-    while a &lt; n:
-      print(a, end=' ')
-      a, b = b, a+b
-{{</code>}}
+---
+## Plots of the Community distribution
 
-And guess what! We also have Vega-Lite embedded graphs!
+Here we break up the community accounts into groups of "exponential value."{{<footnote>}}Note that this plot is not interactive, because it is a picture and I haven't had time to create the vega-lite version of it yet.{{</footnote>}} That is, we bucket each address based on what order of magnitude it is, as well as note how big that bucket is to show how many people control how much total value. 
 
-{{<vega id="viz" spec="https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json">}}
+![alt](static_exp_group.png)
 
-That’s it for the example article!
+## Bringing it all together to get a real picture
 
-<table>
-  <thead> 
-    <tr>
-    <th>Address</th>
-    <th>Balance</th>
-    </tr>
-  </thead>
-  <tbody>
-  {{ $url := "static/data_csv/holders.csv" }}
-  {{ $sep := "," }}
-  {{ range $i, $r := getCSV $sep $url }}
-    <tr>
-      <td>{{ index $r 0 }}</td>
-      <td>{{ index $r 1 }}</td>
-    </tr>
-  {{ end }}
-  </tbody>
-</table>
+Now that we have more insight into each of the sub-groups explained earlier, we can start to form a more informed picture of the total distribution of SNT across its various holders.
